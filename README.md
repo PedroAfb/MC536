@@ -2,11 +2,22 @@
 
 ## Visão Geral
 
-Projeto para a disciplina de Banco de Dados da Unicamp. O objetivo do projeto é criar um banco de dados utilizando dados relacionados a ODS, usando dados reais para o preenchimento do banco. O banco utilizado foi Postgres.
+Projeto para a disciplina de Banco de Dados da Unicamp. O objetivo do projeto é criar um banco de dados utilizando dados relacionados a ODS 13 (Ação contra a Mudança Global do Clima), usando dados reais para o preenchimento do banco. O banco utilizado foi Postgres.
 
+Desenvolvido por:
+- Pedro Borges(torne o nome em um hperlink: https://github.com/JoaoVgon31) (260628)
+- João Vitor (torne o nome em um hiperlink: https://github.com/PedroAfb) (237871)
 ## Objetivo do Projeto
 
 Esse projeto tem como objetivo reunir dados relacionados direta ou indiretamente a Amazonia Legal, e mostrar dados de degradação da região relacionados a outros fatores relevantes.
+
+## Esquema do Banco de Dados
+
+- **Modelo Conceitual**
+![Modelo Conceitual](imagens/modelo_conceitual.png "Modelo Conceitual do Banco de Dados")
+- **Modelo Relacional**
+![Modelo Relacional](imagens/modelo_relacional.png "Modelo Relacional do Banco de Dados")
+- Caminho do arquivo para gerar BD: **GeracaoBD.sql**
 
 ## Datasets
 
@@ -16,54 +27,46 @@ Esse projeto tem como objetivo reunir dados relacionados direta ou indiretamente
 - caminho csv
 - atalho arquivo insercao associado
 
-descrição: Dataset disponibilizado pelo IBGE (Instituto Brasileiro de Geografia e Estatística). Contém dados sobre todos os municípios brasileiros.
+Descrição: Dataset disponibilizado pelo IBGE (Instituto Brasileiro de Geografia e Estatística). Contém dados sobre todos os municípios brasileiros.
 
 ### Unidades de Conservação
 
-- link
-- caminho csv
-- atalho arquivo insercao associado
+- link: https://dados.mma.gov.br/id/dataset/unidadesdeconservacao
+- caminho csv: datasets/UnidadesConservacao.csv
 
-descrição: Dataset disponibilizado pelo Ministério do Meio Ambiente e Mudança do Clima. Contém dados sobre unidades de conservação cadastradas no CNUC (Cadastro Nacional de Unidades de Conservação), presentes nos estados que fazem parte da Amazônia Legal. Os dados são disponibilizados semestralmente, sendo que, para esse projeto, está sendo utilizado o arquivo referente ao 2 semestre de 2024.
+Descrição: Dataset disponibilizado pelo Ministério do Meio Ambiente e Mudança do Clima. Contém dados sobre unidades de conservação cadastradas no CNUC (Cadastro Nacional de Unidades de Conservação), presentes nos estados que fazem parte da Amazônia Legal. Os dados são disponibilizados semestralmente, sendo que, para esse projeto, está sendo utilizado o arquivo referente ao 2 semestre de 2024.
 
 ### Foco de Queimadas
 
-- link
-- caminho csv
-- atalho arquivo insercao associado
+- link: https://terrabrasilis.dpi.inpe.br/app/dashboard/fires/biomes/aggregated/#
+- caminho csv: datasets/FocoQueimadasEstado.csv
 
-descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais) por meio da plataforma TerraBrasilis. Contém dados sobre focos de queimadas obtidos por satélites. Os dados são disponibilizados com referência ã todo território brasileiro, assim como, categorizados por bioma, sendo que, nesse projeto, está sendo utilizado o arquivo referente ao bioma Amazônia.
+Descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais) por meio da plataforma TerraBrasilis. Contém dados sobre focos de queimadas obtidos por satélites. Os dados são disponibilizados com referência ã todo território brasileiro, assim como, categorizados por bioma, sendo que, nesse projeto, está sendo utilizado o arquivo referente ao bioma Amazônia.
 
 ### Meteorologia
 
-- link
-- caminho csv
-- atalho arquivo insercao associado
+- link: https://bdmep.inmet.gov.br
+- caminho csv: de datasets/clima2000 até datasets/clima2024
 
-descrição: Dataset disponibilizado pelo INMET (Instituto Nacional de Meteorologia). Contém dados meteorológicos coletados por estações meteorológicas. Os dados podem ser acessados por solicitação de dados específicos ou pelo acesso aos dados gerais de todo histórico de coleta, que foi o caso desse projeto.
+Descrição: Dataset disponibilizado pelo INMET (Instituto Nacional de Meteorologia). Contém dados meteorológicos coletados por estações meteorológicas. Os dados podem ser acessados por solicitação de dados específicos ou pelo acesso aos dados gerais de todo histórico de coleta, que foi o caso desse projeto.
 
 ### Desmatamento
 
-- link
-- caminho csv
-- atalho arquivo insercao associado
+- link: https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/increments
+- caminho csv:
+  - datasets/DesmatamentoAreasIndigena.csv
+  - datasets/DesmatamentoCidades.csv
+  - datasets/DesmatamentoUnidadeConservacao.csv
 
-descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais) por meio da plataforma TerraBrasilis. Contém dados sobre desmatamento por bioma e pela região da Amazonia Legal. Os dados são disponibilizados por Estado, cidades, unidades de conservação e áreas indígenas. Nesse projeto, estão sendo utilizados dados de desmatamento por cidades, unidades de conservação e áreas indígenas, todos referentes a Amazônia Legal.
+Descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais) por meio da plataforma TerraBrasilis. Contém dados sobre desmatamento por bioma e pela região da Amazonia Legal. Os dados são disponibilizados por Estado, cidades, unidades de conservação e áreas indígenas. Nesse projeto, estão sendo utilizados dados de desmatamento por cidades, unidades de conservação e áreas indígenas, todos referentes a Amazônia Legal.
 
 ### Emissão de Gases Amazônia Legal
 
-- link
-- caminho csv
+- link: https://dados.gov.br/dados/conjuntos-dados/inpe-em
+- caminho csv: datasets/EmissaoGasesAmazonia.xlsx
 - atalho arquivo insercao associado
 
-descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). Contém dados dados de estimativas de emissões de gases anuais para toda Amazônia Legal. Os dados são disponibilizados agregados por ano (1960 a 2020) e de modo desagregado espacialmente, sendo que, nesse projeto, são utilizados os dados agregados por ano.
-
-## Esquema do Banco de Dados
-
-- imagem banco conceitual
-- imagem banco relacional
-- link para arquivo para gerar BD
-- link para arquivo do modelo relacional
+Descrição: Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). Contém dados dados de estimativas de emissões de gases anuais para toda Amazônia Legal. Os dados são disponibilizados agregados por ano (1960 a 2020) e de modo desagregado espacialmente, sendo que, nesse projeto, são utilizados os dados agregados por ano.
 
 ## Dicionario de Dados
 
@@ -148,10 +151,6 @@ tabelas preenchidas/atualizadas:
 
 - Insere regioes administrativas
 
-fonte:
-
-- Dados definidos no código
-
 #### insert_emissao
 
 tabelas preenchidas/atualizadas:
@@ -159,20 +158,12 @@ tabelas preenchidas/atualizadas:
 - Insere relatórios de emissão de gases
 - Relaciona com regiões administrativas
 
-fonte:
-
-- atalho dataset associado
-
 #### insert_estado
 
 tabelas preenchidas/atualizadas
 
 - Insere estados
-- Relaciona com regioes administrativas
-
-fonte:
-
-- Dados definidos no código
+- Relaciona com regioes administrativa
 
 ##### insert_queimadas
 
@@ -181,20 +172,12 @@ tabelas preenchidas/atualizadas
 - Inserte relatório de queimadas
 - Relaciona com Estados
 
-fonte:
-
-- atalho dataset associado
-
 #### insert_cidade
 
 tabelas preenchidas/atualizadas
 
 - Insere cidades
 - Relaciona com Estados
-
-fonte:
-
-- atalho dataset associado
 
 #### insert_meteorologia
 
@@ -205,10 +188,6 @@ tabelas preenchidas/atualizadas
 - Relaciona cidade com estações meteorológicas
 - Relaciona estações meteorológicas com relatórios de meteorologia
 
-fonte:
-
-- atalho dataset associado
-
 #### insert_unidade_conservacao
 
 tabelas preenchidas/atualizadas
@@ -217,19 +196,11 @@ tabelas preenchidas/atualizadas
 - Relaciona com Estados
 - Relaciona com Cidades
 
-fonte:
-
-- atalho dataset associado
-
 #### insert_indigena
 
 tabelas preenchidas/atualizadas
 
 - Insere áreas indígenas
-
-fonte:
-
-- atalho dataset associado
 
 #### insert_desmatamento_cidade
 
@@ -238,20 +209,12 @@ tabelas preenchidas/atualizadas
 - Insere relatórios de desmatamento
 - Relaciona com Cidades
 
-fonte:
-
-- atalho dataset associado
-
 #### insert_desmatamento_unidade_conservacao
 
 tabelas preenchidas/atualizadas
 
 - Insere relatórios de desmatamento
 - Relaciona com Unidades de conservação
-
-fonte:
-
-- atalho dataset associado
 
 #### insert_desmatamento_indigena
 
@@ -260,15 +223,11 @@ tabelas preenchidas/atualizadas
 - Insere relatórios de desmatamento
 - Relaciona com áreas indígenas
 
-fonte:
-
-- atalho dataset associado
-
 ## Setup e Execução
 
 O arquivo insert_all está organizado para o preenchimento do banco de dados apenas executando cada célula do notebook de forma sequencial. O arquivo reune os arquivos de insert e os executa na ordem de explicação acima.
 
-Para começar, é necessário criar o banco de dados Postgres, e atualizar os dados no primeiro bloco do arquivo de acordo com os dados do banco criado. Após isso, conectando-se ao banco de dados com sucesso, basta seguir a execução dos blocos em ordem
+Para começar, é necessário **criar o banco de dados Postgres**, **Rodar o script do arquivo GeracaoBD.sql para criar os esquemas do BD**, **atualizar a configuração do BD no arquivo inserts/DATABASE_CONFIG.py**. Após isso, conectando-se ao banco de dados com sucesso, **basta seguir a execução dos blocos em ordem no arquivo inserts/insert_all.ipynb**
 
 ## Consultas e Resultados
 
@@ -276,9 +235,8 @@ Para começar, é necessário criar o banco de dados Postgres, e atualizar os da
 
 Esta consulta identifica, para cada estação meteorológica, o dia com a maior variação diária de temperatura (diferença entre a máxima e mínima) registrada, mostrando a data, os valores extremos do dia e a variação, além de calcular a média geral das variações diárias daquela estação ao longo do período; os resultados incluem também o nome da estação, cidade e estado, permitindo comparar os dias mais extremos de cada local com seu comportamento médio, tudo organizado em ordem decrescente pela maior variação registrada.
 
-- trecho codigo SQL consulta
-- imagem parte dos resultados
-- link arquivo resultados completos
+- Código em consultas/CONSULTA1.sql
+- Resultado em consultas/RESULTADO1.csv
 
 ### Consulta 2
 
@@ -286,30 +244,26 @@ Esta consulta calcula, para cada cidade que possui pelo menos uma unidade de con
 
 - \*Unidade de conservacão exclusiva é aquela associada somente a uma cidade, ou seja, cujo território abrange apenas uma cidade
 
-- trecho codigo SQL consulta
-- imagem parte dos resultados
-- link arquivo resultados completos
+- Código em consultas/CONSULTA2.sql
+- Resultado em consultas/RESULTADO2.csv
 
 ### Consulta 3
 
 Esta consulta reúne, para cada ano, os dados agregados da Amazônia Legal combinando três grandes dimensões: (1) o total anual de emissão de gases de efeito estufa, (2) a temperatura média anual calculada a partir das médias estaduais (baseada em temperaturas máximas e mínimas), e (3) o total anual de focos de queimadas registrados; ela cruza essas informações ano a ano, garantindo que só sejam considerados os anos onde há dados disponíveis em todas as três fontes, e entrega uma visão consolidada que permite analisar possíveis correlações entre temperatura, queimadas e emissões na região ao longo do tempo.
 
-- trecho codigo SQL consulta
-- imagem parte dos resultados
-- link arquivo resultados completos
+- Código em consultas/CONSULTA3.sql
+- Resultado em consultas/RESULTADO3.csv
 
 ### Consulta 4
 
 Esta consulta retorna as 10 áreas mais desmatadas, considerando tanto áreas indígenas quanto unidades de conservação, combinando os dados das duas entidades. Para cada área, ela exibe o nome, o tipo (explicitamente marcado como Área Indígena ou Unidade de Conservação) e o total acumulado de desmatamento em km², ordenando os resultados do maior para o menor total desmatado e limitando a exibição às dez primeiras posições, ou seja, às áreas mais impactadas pelo desmatamento.
 
-- trecho codigo SQL consulta
-- imagem parte dos resultados
-- link arquivo resultados completos
+- Código em consultas/CONSULTA4.sql
+- Resultado em consultas/RESULTADO4.csv
 
 ### Consulta 5
 
 Essa consulta tem como objetivo calcular, para cada uma das cinco grandes regiões administrativas do Brasil (Norte, Nordeste, Centro-Oeste, Sudeste e Sul), a soma total da área da Amazônia presente nas unidades de conservação localizadas em seus estados, a soma total da área desmatada nessas unidades e o percentual que essa área desmatada representa em relação à área total amazônica.
 
-- trecho codigo SQL consulta
-- imagem parte dos resultados
-- link arquivo resultados completos
+- Código em consultas/CONSULTA5.sql
+- Resultado em consultas/RESULTADO5.csv
