@@ -33,7 +33,7 @@ Esse projeto tem como objetivo reunir dados relacionados direta ou indiretamente
 
 - fonte: https://www.ibge.gov.br/explica/codigos-dos-municipios.php
 - arquivo local: [Cidades](datasets/Cidades.csv)
-- script inserção: [insert_cidades](#insert_cidade)
+- script inserção: [insert_cidade](#insert_cidade)
 
 Dataset disponibilizado pelo IBGE (Instituto Brasileiro de Geografia e Estatística). Contém dados sobre todos os municípios brasileiros.
 
@@ -170,6 +170,7 @@ Vale notar que nem todos os campos dos datasets originais foram utilizados, e al
 
 ### insert_emissao
 
+- dataset: [Emissao de Gases Amazônia Legal](#emissão-de-gases-amazônia-legal)
 - Insere relatórios de emissão de gases
 - Relaciona com regiões administrativas
 
@@ -180,16 +181,19 @@ Vale notar que nem todos os campos dos datasets originais foram utilizados, e al
 
 #### insert_queimadas
 
+- dataset: [Foco de Queimadas](#foco-de-queimadas)
 - Inserte relatório de queimadas
 - Relaciona com Estados
 
 ### insert_cidade
 
+- dataset: [Cidades](#cidades)
 - Insere cidades
 - Relaciona com Estados
 
 ### insert_meteorologia
 
+- dataset: [Meteorologia](#meteorologia)
 - Insere estações meteorológicas
 - Insere relatórios de meteorologia
 - Relaciona cidade com estações meteorológicas
@@ -197,26 +201,31 @@ Vale notar que nem todos os campos dos datasets originais foram utilizados, e al
 
 ### insert_unidade_conservacao
 
+- dataset: [Unidades de Conservação](#unidades-de-conservação)
 - Insere unidades de conservação
 - Relaciona com Estados
 - Relaciona com Cidades
 
 ### insert_indigena
 
+- dataset: [Desmatamento](#desmatamento)
 - Insere áreas indígenas
 
 ### insert_desmatamento_cidade
 
+- dataset: [Desmatamento](#desmatamento)
 - Insere relatórios de desmatamento
 - Relaciona com Cidades
 
 ### insert_desmatamento_unidade_conservacao
 
+- dataset: [Desmatamento](#desmatamento)
 - Insere relatórios de desmatamento
 - Relaciona com Unidades de conservação
 
 ### insert_desmatamento_indigena
 
+- dataset: [Desmatamento](#desmatamento)
 - Insere relatórios de desmatamento
 - Relaciona com áreas indígenas
 
