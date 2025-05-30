@@ -247,7 +247,6 @@ ALTER TABLE IF EXISTS public.relatorio_desmatamento
 	    id_area_indigena IS NOT NULL
 	);
 
--- Primeiro remova as sequências usadas pelos bigserial
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_area_indigena DROP DEFAULT;
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_cidade DROP DEFAULT;
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao DROP DEFAULT;
@@ -255,11 +254,5 @@ ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao DR
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_area_indigena DROP NOT NULL;
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_cidade DROP NOT NULL;
 ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao DROP NOT NULL;
-
-
--- Depois mude o tipo para bigint
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_area_indigena TYPE bigint;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_cidade TYPE bigint;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao TYPE bigint;
 
 END;
