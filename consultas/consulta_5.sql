@@ -2,10 +2,10 @@ WITH uc_desmatamento_detalhado AS (
     SELECT
         uc.id_unidade_conservacao,
         uc.area_amazonia_ha / 100.0 AS area_km2_amazonia,
-        SUM(rd.area_km2) AS total_desmatado,
+        SUM(d.area_km2) AS total_desmatado,
         c.id_estado
     FROM unidade_conservacao uc
-    JOIN relatorio_desmatamento rd ON uc.id_unidade_conservacao = rd.id_unidade_conservacao
+    LEFT OUTER JOIN desmatamento d ON uc.id_unidade_conservacao = d.id_unidade_conservacao
     JOIN cidade_unidade_conservacao cuc ON uc.id_unidade_conservacao = cuc.unidade_conservacao_id_unidade_conservacao
     JOIN cidade c ON cuc.cidade_id_cidade = c.id_cidade
     WHERE uc.area_amazonia_ha > 0
@@ -20,7 +20,7 @@ uc_estado_regiao AS (
     JOIN estado e ON ucdd.id_estado = e.id_estado
     JOIN estado_regiao_administrativa era ON e.id_estado = era.estado_id_estado
     JOIN regiao_administrativa r ON era.regiao_administrativa_id_regiao_administrativa = r.id_regiao_administrativa
-	WHERE r.nome IN ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')
+	WHERE r.nome IN ('Norte', 'Nordeste', 'Centro-Oeste')
 )
 SELECT
     regiao,

@@ -53,7 +53,7 @@ Dataset disponibilizado pelo Ministério do Meio Ambiente e Mudança do Clima. C
 
 Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais) por meio da plataforma TerraBrasilis. Contém dados sobre focos de queimadas obtidos por satélites. Os dados são disponibilizados com referência ã todo território brasileiro, assim como, categorizados por bioma, sendo que, nesse projeto, está sendo utilizado o arquivo referente ao bioma Amazônia.
 
-### Meteorologia
+### Medições Climáticas
 
 - fonte: https://bdmep.inmet.gov.br
 - arquivo local: todos os arquivos nas pastas /clima2000 a /clima2024 em /datasets
@@ -108,12 +108,12 @@ Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). C
 
 - **Estação Meteorológica**: Instalação com instrumentos para registrar dados climáticos automaticamente. Usada como base geográfica para associar dados de meteorologia. Inclui todas as estações meteorológicas presentes nos relatórios de meteorologia disponibilizados pelo INMET (Instituto Nacional de Meteorologia) de 2000 a 2024. Imutável após registro do relatório.
 
-- **Relatorio de Desmatamento**: Registro anual da área desmatada em determinada cidade/unidade de conservação/área indígena. Usada para avaliar desmatamento e impacto ambiental. Imutável após registro do relatório.
+- **Desmatamento**: Registro anual da área desmatada em determinada cidade/unidade de conservação/área indígena. Usada para avaliar desmatamento e impacto ambiental. Imutável após registro do relatório.
 
   - Atributos:
     - _area_km2_: área desmatada em quilômetros quadrados
 
-- **Relatorio de Meteorologia**: Registro de dados climáticos diários, hora em hora, por estação meteorológica. Usada para avaliar dados meteorológicos e impacto ambiental. Imutável após registro do relatório.
+- **Medicoes Climaticas**: Registro de dados climáticos diários, hora em hora, por estação meteorológica. Usada para avaliar dados meteorológicos e impacto ambiental. Imutável após registro do relatório.
 
   - Atributos:
     - _temperatura_max_: temperatura máxima registrada na hora anterior, em graus Celsius
@@ -122,7 +122,7 @@ Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). C
     - _umidade_: umidade relativa do ar na hora de medição, em porcentagem
     - _velocidade_vento_: velocidade do ar na hora de medição, em metros por segundo
 
-- **Relatorio de Emissão de Gases**: Consolidação anual das emissões e absorções de gases de efeito estufa por região. Usada para avaliar emissão e impacto ambiental. Imutável após registro do relatório.
+- **Emissão de Gases**: Consolidação anual das emissões e absorções de gases de efeito estufa por região. Usada para avaliar emissão e impacto ambiental. Imutável após registro do relatório.
 
   - Atributos:
     - _co2_1a_ordem_: emissão de CO2 de 1 ordem. A medida de 1a ordem supõe de modo simplificado que 100% das emissões ocorram no momento da mudança de uso/cobertura
@@ -134,13 +134,13 @@ Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). C
 
 [^1]: Quantidade expressa em termos do impacto que teria se fosse CO2
 
-- **Relatorio de Focos de Queimadas**: Registros de pontos de calor detectados por satélite, indicando possível queimada. Usada para avaliar focos de queimada e impacto ambiental. Imutável após registro do relatório.
+- **Focos de Queimadas**: Registros de pontos de calor detectados por satélite, indicando possível queimada. Usada para avaliar focos de queimada e impacto ambiental. Imutável após registro do relatório.
 
 ### Relacionamentos
 
-- **Relatório de Desmatamento _ocorreu em_ Cidade/Unidade de Conservação/Área Indígena**: representa o local em que aconteceu o desmatamento referenciado. O desmatamento pode ocorrer em Cidade, Unidade de Conservação e Área Indígena, mas um mesmo relatório pode ter relação apenas com uma dessas entidades por vez. É definido no momento de cadastro do relatório e não pode ser alterado.
+- **Desmatamento _ocorreu em_ Cidade/Unidade de Conservação/Área Indígena**: representa o local em que aconteceu o desmatamento referenciado. O desmatamento pode ocorrer em Cidade, Unidade de Conservação e Área Indígena, mas um mesmo relatório pode ter relação apenas com uma dessas entidades por vez. É definido no momento de cadastro do relatório e não pode ser alterado.
 
-- **Relatório de Meteorologia _pertence a_ Estação Meteorológica**: representa a estação que gerou os dados do relatório de meteorologia. Definido no momento de cadastro do relatório e não pode ser alterado.
+- **Medições Climáticas _pertence a_ Estação Meteorológica**: representa a estação que gerou os dados do relatório de meteorologia. Definido no momento de cadastro do relatório e não pode ser alterado.
 
 - **Estação Meteorológica _pertence a_ Cidade**: representa a cidade em que a estação meteorológica está localizada. Definido no momento de cadastro da estação meteorológica e não pode ser alterado.
 
@@ -150,11 +150,11 @@ Dataset disponibilizado pelo INPE (Instituto Nacional de Pesquisas Espaciais). C
 
 - **Unidade de Conservação _abrange_ Cidades**: representa as cidades em que o território da unidade de conservação está presente. Definido no momento do cadastro da unidade de conservação e pode ser alterado caso ocorram mudanças no território da área de conservação.
 
-- **Relatório de Focos de Queimadas _pertence a_ Estado**: representa o Estado em que aconteceram os registro do foco de queimadas referenciado. Definido no momento do cadastro do relatório e não pode ser alterado.
+- **Focos de Queimadas _pertence a_ Estado**: representa o Estado em que aconteceram os registro do foco de queimadas referenciado. Definido no momento do cadastro do relatório e não pode ser alterado.
 
 - **Estado _pertence a_ Região Administrativa**: representa a região administrativa à qual o Estado pertence. Um Estado pode pertencer a diferentes regiões administrativas. Definido no momento do cadastro do Estado e não pode ser alterado.
 
-- **Relatório de Emissão de Gases _pertence a_ Região Administrativa**: representa a região administrativa à qual os dados de emissão de gases se referem. Definido no momento do cadastro do relatório e não pode ser alterado.
+- **Emissão de Gases _pertence a_ Região Administrativa**: representa a região administrativa à qual os dados de emissão de gases se referem. Definido no momento do cadastro do relatório e não pode ser alterado.
 
 ## Scripts de Preenchimento do Banco de Dados
 
@@ -193,7 +193,7 @@ Vale notar que nem todos os campos dos datasets originais foram utilizados, e al
 
 ### insert_meteorologia
 
-- dataset: [Meteorologia](#meteorologia)
+- dataset: [Meteorologia](#medições-climáticas)
 - Insere estações meteorológicas
 - Insere relatórios de meteorologia
 - Relaciona cidade com estações meteorológicas

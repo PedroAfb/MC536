@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS public.regiao_administrativa
 
 
 -- Se der error remover NOT NULL e DEFAULT dos ids estrangeiros de relatorio desmatamento
-CREATE TABLE IF NOT EXISTS public.relatorio_desmatamento
+CREATE TABLE IF NOT EXISTS public.desmatamento
 (
     id_desmatamento bigserial NOT NULL,
     area_km2 numeric NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS public.relatorio_desmatamento
     PRIMARY KEY (id_desmatamento)
 );
 
-CREATE TABLE IF NOT EXISTS public.relatorio_emissao_gases_anual
+CREATE TABLE IF NOT EXISTS public.emissao_gases
 (
     id_emissao bigserial NOT NULL,
     ano integer NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS public.relatorio_emissao_gases_anual
     UNIQUE (ano)
 );
 
-CREATE TABLE IF NOT EXISTS public.relatorio_focos_queimadas
+CREATE TABLE IF NOT EXISTS public.focos_queimadas
 (
     id_foco_queimada bigserial NOT NULL,
     mes_ano date NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS public.relatorio_focos_queimadas
     PRIMARY KEY (id_foco_queimada)
 );
 
-CREATE TABLE IF NOT EXISTS public.relatorio_meteorologia
+CREATE TABLE IF NOT EXISTS public.medicoes_climaticas
 (
     id_meteorologia bigserial NOT NULL,
     data_horario_coleta timestamp without time zone NOT NULL,
@@ -144,7 +144,7 @@ ALTER TABLE IF EXISTS public.cidade
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_desmatamento
+ALTER TABLE IF EXISTS public.desmatamento
     ADD CONSTRAINT "RelatorioDesmatamento_id_cidade_fkey" FOREIGN KEY (id_cidade)
     REFERENCES public.cidade (id_cidade) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -152,7 +152,7 @@ ALTER TABLE IF EXISTS public.relatorio_desmatamento
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_desmatamento
+ALTER TABLE IF EXISTS public.desmatamento
     ADD CONSTRAINT "RelatorioDesmatamento_id_unidade_conservacao_fkey" FOREIGN KEY (id_unidade_conservacao)
     REFERENCES public.unidade_conservacao (id_unidade_conservacao) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -160,7 +160,7 @@ ALTER TABLE IF EXISTS public.relatorio_desmatamento
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_desmatamento
+ALTER TABLE IF EXISTS public.desmatamento
     ADD CONSTRAINT "RelatorioDesmatamento_id_area_indigena_fkey" FOREIGN KEY (id_area_indigena)
     REFERENCES public.area_indigena (id_area_indigena) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -168,7 +168,7 @@ ALTER TABLE IF EXISTS public.relatorio_desmatamento
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_emissao_gases_anual
+ALTER TABLE IF EXISTS public.emissao_gases
     ADD CONSTRAINT "RelatorioEmissaoGasesAnual_id_regiao_administrativa_fkey" FOREIGN KEY (id_regiao_administrativa)
     REFERENCES public.regiao_administrativa (id_regiao_administrativa) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -176,7 +176,7 @@ ALTER TABLE IF EXISTS public.relatorio_emissao_gases_anual
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_focos_queimadas
+ALTER TABLE IF EXISTS public.focos_queimadas
     ADD CONSTRAINT "RelatorioFocosQueimadas_id_estado_fkey" FOREIGN KEY (id_estado)
     REFERENCES public.estado (id_estado) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -184,7 +184,7 @@ ALTER TABLE IF EXISTS public.relatorio_focos_queimadas
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.relatorio_meteorologia
+ALTER TABLE IF EXISTS public.medicoes_climaticas
     ADD CONSTRAINT "RelatorioMeteorologia_id_estacao_meteorologica_fkey" FOREIGN KEY (id_estacao_meteorologica)
     REFERENCES public.estacao_meteorologica (id_estacao_meteorologica) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -239,7 +239,7 @@ ALTER TABLE IF EXISTS public.estado_regiao_administrativa
     ON DELETE NO ACTION
     NOT VALID;
 
-ALTER TABLE IF EXISTS public.relatorio_desmatamento
+ALTER TABLE IF EXISTS public.desmatamento
 	ADD CONSTRAINT "RelatorioDesmatamento_fkey_not_all_null_chk"
 	CHECK (
 	    id_cidade IS NOT NULL OR
@@ -247,12 +247,12 @@ ALTER TABLE IF EXISTS public.relatorio_desmatamento
 	    id_area_indigena IS NOT NULL
 	);
 
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_area_indigena DROP DEFAULT;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_cidade DROP DEFAULT;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao DROP DEFAULT;
+ALTER TABLE public.desmatamento ALTER COLUMN id_area_indigena DROP DEFAULT;
+ALTER TABLE public.desmatamento ALTER COLUMN id_cidade DROP DEFAULT;
+ALTER TABLE public.desmatamento ALTER COLUMN id_unidade_conservacao DROP DEFAULT;
 
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_area_indigena DROP NOT NULL;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_cidade DROP NOT NULL;
-ALTER TABLE public.relatorio_desmatamento ALTER COLUMN id_unidade_conservacao DROP NOT NULL;
+ALTER TABLE public.desmatamento ALTER COLUMN id_area_indigena DROP NOT NULL;
+ALTER TABLE public.desmatamento ALTER COLUMN id_cidade DROP NOT NULL;
+ALTER TABLE public.desmatamento ALTER COLUMN id_unidade_conservacao DROP NOT NULL;
 
 END;
